@@ -7,7 +7,7 @@ function GetLocation({ address }) {
   useEffect(() => {
     const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
       address
-    )}&key=AIzaSyA6Ymglsqpre5Za8Z2Zv8lV4dlMex7DMCk`;
+    )}&key=` + process.env.REACT_APP_GOOGLE_API_KEY;
 
     fetch(geocodeUrl)
       .then((response) => response.json())

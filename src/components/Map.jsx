@@ -47,7 +47,7 @@ function Map({ latitude, longitude }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://data.sfgov.org/resource/rqzj-sfat.json?$limit=5000&$$app_token=B5fHsalOXk2n9XhzWT2ORHtEG");
+        const response = await fetch(`https://data.sfgov.org/resource/rqzj-sfat.json?$limit=5000&$$app_token=${process.env.REACT_APP_TOKEN}`);
         const jsonData = await response.json();
         setData(jsonData);
         setSortedData(jsonData);

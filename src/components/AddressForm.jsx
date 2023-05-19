@@ -3,6 +3,7 @@ import { GoogleMap, Marker } from '@react-google-maps/api';
 import React, { useEffect, useState, useRef } from 'react';
 import GetLocation from './GetLocation';
 import foodTruck from '../images/food_truck.jpeg'
+import { useParams } from 'react-router-dom';
 
 function AddressForm() {
   const [address, setAddress] = useState('');
@@ -11,7 +12,7 @@ function AddressForm() {
   useEffect(() => {
     // Load Google Maps API script dynamically
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyA6Ymglsqpre5Za8Z2Zv8lV4dlMex7DMCk&libraries=places&callback=initAutocomplete`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places&callback=initAutocomplete`;
     script.async = true;
     script.defer = true;
     document.head.appendChild(script);
